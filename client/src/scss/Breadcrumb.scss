@@ -1,0 +1,40 @@
+$margin-small: 16px;
+$margin-large: 32px;
+$header-height: 54px;
+$breadcrumb-font: 14px;
+$gray-40: #666666;
+$max-width: 1240px;
+
+  
+  .breadcrumb-container {
+    max-width: $max-width;
+    margin: $margin-small auto;
+  }
+  
+  .breadcrumb {
+    ul {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    li {
+      &:first-child {
+        list-style-type: none;
+        list-style-image: url();
+      }
+      &:last-child {
+        font-weight: bold;
+      }
+      margin: 0 $margin-large 0 0;
+      float: left;
+    }
+    font-size: $breadcrumb-font;
+    color: $gray-40;
+    display: flex;
+    align-items: center;
+    list-style-image: url('../Images/next.svg');
+  }
+
+ 
+
+ 

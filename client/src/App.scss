@@ -1,0 +1,15 @@
+
+$gray: #eeeeee;
+$font-type: 'Lato', sans-serif;
+
+body {
+    margin: 0;
+    background-color: $gray; 
+    font-family: $font-type;
+  }
+
+
+@import './scss/Breadcrumb.scss';
+@import './scss/Details.scss';
+@import './scss/Header.scss';
+@import './scss/Result.scss';
