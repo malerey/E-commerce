@@ -6,7 +6,7 @@ header {
   justify-content: center; }
 
 .main-header-container {
-  width: 75%;
+  width: 1240px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -22,14 +22,14 @@ header {
 
 .search-container {
   height: 36px;
-  width: 92%;
+  width: 1155px;
   display: inline-block; }
 
 input {
   color: #666666;
   height: 38px;
   font-size: 18px;
-  width: 94%;
+  width: 1115px;
   padding: 0 7px;
   border: none;
   outline: none;
@@ -39,7 +39,7 @@ input {
 .search-button {
   background-color: #eeeeee;
   height: 38px;
-  width: 42px;
+  width: 40px;
   position: absolute;
   border: none;
   cursor: pointer;

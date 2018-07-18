@@ -26,15 +26,19 @@ class Result extends Component {
           </div>
 
           <div className="price-result">
-            <p>
+            <span>
               $ {this.props.result.price.amount.toLocaleString("es")}
               <sup>{ifdecimal}</sup>
-              <img alt="Envio gratis" src={freeship ? imgship : undefined} />
-            </p>
+              <img alt="" src={freeship ? imgship : ""} />
+            </span>
           </div>
 
           <div className="title-result">
-            <p>{this.props.result.title}</p>
+            <span>{this.props.result.title}</span>
+          </div>
+
+          <div className="location-result">
+            <span>Ubicación</span>
           </div>
         </div>
       </a>

@@ -103,7 +103,7 @@ header {
   justify-content: center; }
 
 .main-header-container {
-  width: 75%;
+  width: 1240px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -119,14 +119,14 @@ header {
 
 .search-container {
   height: 36px;
-  width: 92%;
+  width: 1155px;
   display: inline-block; }
 
 input {
   color: #666666;
   height: 38px;
   font-size: 18px;
-  width: 94%;
+  width: 1115px;
   padding: 0 7px;
   border: none;
   outline: none;
@@ -136,7 +136,7 @@ input {
 .search-button {
   background-color: #eeeeee;
   height: 38px;
-  width: 42px;
+  width: 40px;
   position: absolute;
   border: none;
   cursor: pointer;
@@ -152,11 +152,12 @@ body {
   font-family: "Lato", sans-serif; }
 
 .result-container {
+  border: 1px solid #eeeeee;
   max-width: 1240px;
-  margin: 16px auto;
-  padding-top: 16px;
+  margin: auto;
   background-color: #FFFFFF;
-  position: relative; }
+  position: relative;
+  border-radius: 4px; }
 
 .img-query {
   height: 180px;
@@ -170,7 +171,7 @@ body {
     border-radius: 4px; }
 
 .price-result {
-  font-size: 18px;
+  font-size: 24px;
   color: #333333;
   display: inline-block;
   position: absolute;
@@ -180,10 +181,20 @@ body {
 
 .title-result {
   position: absolute;
-  top: 100px;
+  top: 86px;
+  height: auto;
   font-size: 18px;
   color: #333333;
-  display: inline-block; }
+  display: inline-block;
+  max-width: 350px; }
 
 .price-result img {
   margin-left: 16px; }
+
+.location-result {
+  display: inline-block;
+  position: absolute;
+  right: 90px;
+  padding: 50px 0;
+  font-size: 12px;
+  color: #666666; }
