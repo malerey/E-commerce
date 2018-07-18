@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background-color: $gray; 
-    font-family: $font-type;
-  }
-
 .product-container {
   max-width: $max-width;
   margin: $margin-small auto;
