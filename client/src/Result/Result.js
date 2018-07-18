@@ -38,7 +38,7 @@ class Result extends Component {
           </div>
 
           <div className="location-result">
-            <span>Ubicación</span>
+            <span>{this.props.result.location}</span>
           </div>
         </div>
       </a>

@@ -73,6 +73,9 @@ self.getquery = function(req, res) {
                     picture: item.thumbnail,
                     condition: item.condition,
                     free_shipping: item.shipping.free_shipping,
+                    location: item.address.state_name,
+                    // this key is not requested in the exercise, but 
+                    // I considered it necessary to display the address
                 };
             });
         }

@@ -33,11 +33,10 @@ self.getid = function(req, res) {
                 'author': {
                     'name': "Maria Elena",
                     'lastname': "Rey"
-                },
+                },                
+                'categories': categories, 
                     // this key is not requested in the exercise, but 
                     // I considered it necessary to build the breadcrumb
-                    
-                'categories': categories, 
                 'item': {
                     'id': idresult.id,
                     'title': idresult.title,
