@@ -1,22 +1,4 @@
-$details-price: 46px;
-$details-title: 24px;
-$details-upper: 14px; 
-$details-description-title: 28px;
-$details-description: 16px;
-$details-img: 680px;
-
-$white: #FFFFFF;
-$button: #3483fa;
-$gray-40: #666666;
-
-$max-width: 1240px;
-
-$margin-small: 16px;
-$margin-large: 32px;
-$img-border-radius: 4px;
-
-$gray: #eeeeee;
-$font-type: 'Lato', sans-serif;
+@import '../App.scss';
 
 * {
   box-sizing: border-box;

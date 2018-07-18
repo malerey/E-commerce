@@ -1,10 +1,4 @@
-$margin-small: 16px;
-$margin-large: 32px;
-$header-height: 54px;
-$breadcrumb-font: 14px;
-$gray-40: #666666;
-$max-width: 1240px;
-
+@import '../App.scss';
   
   .breadcrumb-container {
     max-width: $max-width;
@@ -35,6 +29,6 @@ $max-width: 1240px;
     list-style-image: url('../Images/next.svg');
   }
 
- 
+
 
  

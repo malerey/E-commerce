@@ -1,6 +1,47 @@
-
-$gray: #eeeeee;
 $font-type: 'Lato', sans-serif;
+
+$white: #FFFFFF;
+$gray: #eeeeee;
+$gray-60: #333333;
+$gray-40: #666666;
+$button: #3483fa;
+$nav: #bc3b69;
+
+$max-width: 1240px;
+
+$margin-small: 16px;
+$margin-large: 32px;
+$margin-title: 86px;
+
+$header-height: 54px;
+$header-padding: 7px;
+$logo-width: 53px;
+$logo-height: 36px;
+
+$button-height: 38px;
+$button-width: 40px;
+
+$header-font: 18px;
+$breadcrumb-font: 14px;
+$results-location-font: 12px;
+$results-location-font-color: $gray-40;
+$results-title-font: 18px;
+$results-price-font: 24px;
+$details-price: 46px;
+$details-title: 24px;
+$details-upper: 14px; 
+$details-description-title: 28px;
+$details-description: 16px;
+
+$results-img: 180px;
+$img-results: 180px;
+$img-border-radius: 4px;
+$details-img: 680px;
+
+$search-container-width: $max-width - $logo-width - $margin-large;
+$input-width: $search-container-width - $button-width;
+
+
 
 body {
     margin: 0;
@@ -8,8 +49,3 @@ body {
     font-family: $font-type;
   }
 
-
-@import './scss/Breadcrumb.scss';
-@import './scss/Details.scss';
-@import './scss/Header.scss';
-@import './scss/Result.scss';

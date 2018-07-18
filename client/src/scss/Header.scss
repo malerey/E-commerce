@@ -1,20 +1,5 @@
-$header-height: 54px;
-$nav: #bc3b69;
-$header-padding: 7px;
-$header-font: 18px;
-$img-border-radius: 4px;
-$gray-40: #666666;
-$gray: #eeeeee;
-$max-width: 1240px;
-$margin-large: 32px;
-$logo-width: 53px;
-$logo-height: 36px;
-$button-height: 38px;
-$button-width: 40px;
-$search-container-width: $max-width - $logo-width - $margin-large;
-$input-width: $search-container-width - $button-width;
 
-
+@import '../App.scss';
 
 header {
   height: $header-height;

@@ -1,26 +1,5 @@
-$max-width: 1240px;
-$margin-large: 32px;
-$margin-small: 16px;
-$margin-title: 86px;
-$white: #FFFFFF;
-$gray: #eeeeee;
-$gray-60: #333333;
-$gray-40: #666666;
-$results-location-font: 12px;
-$results-location-font-color: $gray-40;
-$results-title-font: 18px;
-$results-price-font: 24px;
-$results-img: 180px;
-$img-results: 180px;
-$img-border-radius: 4px;
-$gray: #eeeeee;
-$font-type: 'Lato', sans-serif;
+@import '../App.scss';
 
-body {
-    margin: 0;
-    background-color: $gray; 
-    font-family: $font-type;
-  }
 
 .result-container {
   border: 1px solid $gray;
