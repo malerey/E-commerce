@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Header from "../Header/Header";
-import queryString from "query-string";
-import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import Result from "../Result/Result";
+import React, { Component } from 'react';
+import Header from '../Header/Header';
+import queryString from 'query-string';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import Result from '../Result/Result';
 
 class Results extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Results extends Component {
   componentDidMount() {
     let parsed = queryString.parse(this.props.location.search);
     let query = parsed.search;
-    fetch("http://localhost:3001/api/items?q=" + query)
+    fetch('http://localhost:3001/api/items?q=' + query)
       .then(data => {
         return data.json();
       })
@@ -33,7 +33,7 @@ class Results extends Component {
     let parsed = queryString.parse(this.props.location.search);
     let newquery = parsed.search;
     if(newquery !== this.state.query) {
-    fetch("http://localhost:3001/api/items?q=" + newquery)
+    fetch('http://localhost:3001/api/items?q=' + newquery)
       .then(data => {
         return data.json();
       })
@@ -49,9 +49,8 @@ class Results extends Component {
 
   render() {
     let { received, data } = this.state;
-
     return (
-      <div className="Main">
+      <div className='Main'>
 
         <Header />
 
@@ -65,7 +64,7 @@ class Results extends Component {
               })}
             </div>
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>

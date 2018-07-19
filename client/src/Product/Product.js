@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Header from "../Header/Header";
-import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import Details from "../Details/Details";
+import React, { Component } from 'react';
+import Header from '../Header/Header';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import Details from '../Details/Details';
 
 
 class Product extends Component {
@@ -15,7 +15,7 @@ class Product extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch("http://localhost:3001/api/items/" + id)
+    fetch('http://localhost:3001/api/items/' + id)
       .then(result => {
         return result.json();
       })
@@ -29,7 +29,7 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="Main">
+      <div className='Main'>
         <Header />
 
         <Breadcrumb breadcrumb={this.state} />
