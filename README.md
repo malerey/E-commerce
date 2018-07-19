@@ -11,3 +11,17 @@ Para ver la página es necesario descargar los archivos y ejecutar los siguiente
 ### `npm start`
 
 El backend corre en el puerto 3001 y el frontend, en el puerto 3000.  
+
+## Ada Bootcamp final project - E-commerce website
+
+The server is coded in Node.js and Express. It reaches a public API to obtain data from different products and formats them to be displayed in the frontend.
+
+The frontend is coded in React and Sass. It has three views: a search widget, a products listing and the details of a particular product. Each view can be accessed independently.  
+
+You must download all archives and run the following commands:
+
+### `npm install`
+
+### `npm start`
+
+The server runs in port 3001 and the frontend in port 3000.  
