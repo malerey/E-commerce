@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import '../scss/Details.css';
 
 class Product extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
-
-    console.log(this.props.details.data.item)
     const received = this.props.details.received;
     return (
       <div className='product-container'>

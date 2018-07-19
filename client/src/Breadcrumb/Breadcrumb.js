@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import '../scss/Breadcrumb.css';
 
 class Breadcrumb extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const received = this.props.breadcrumb.received;

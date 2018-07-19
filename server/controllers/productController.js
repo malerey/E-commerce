@@ -1,6 +1,7 @@
 let self = {};
 const productService = require('../services/productService');
 
+
 self.getid = function(req, res) {
   const id = req.params.id;
 

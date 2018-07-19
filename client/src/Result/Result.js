@@ -3,9 +3,6 @@ import imgship from '../Images/ic_shipping.png';
 import '../scss/Result.css';
 
 class Result extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const freeship = this.props.result.free_shipping;

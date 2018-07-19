@@ -1,6 +1,7 @@
 let self = {};
 const searchService = require('../services/searchService');
 
+
 self.getquery = function(req, res) {
   const query = req.query.q;
   searchService.getquery(query).then(result => {
