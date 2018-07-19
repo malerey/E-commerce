@@ -4,7 +4,8 @@ const searchService = require('../services/searchService');
 self.getquery = function(req, res) {
   const query = req.query.q;
   searchService.getquery(query).then(result => {
-    
+    searchService.getcurrency().then(currresult => { 
+
     function getauthor() {
       return {
         name: 'Maria Elena',
@@ -15,7 +16,6 @@ self.getquery = function(req, res) {
     function getcategories(result) {
       const filtersExist = result.filters[0] ? result.filters[0] : [];
       let categories = [];
-
       if (filtersExist == result.filters[0]) {
         categories = filtersExist.values[0].path_from_root.map(category => {
           return category.name;
@@ -27,7 +27,6 @@ self.getquery = function(req, res) {
           return filterarray;
         });
         let maxresult = filterarray[0];
-
         for (var i = 1; i < filterarray.length; i++) {
           if (maxresult.results <= filterarray[i].results) {
             maxresult = filterarray[i];
@@ -40,6 +39,7 @@ self.getquery = function(req, res) {
     }
 
     function getitems(items) {
+      
       return items.map(item => {
         let splitted = item.price.toString().split('.');
         let decimals = formatprice(splitted);
@@ -54,11 +54,23 @@ self.getquery = function(req, res) {
           }
         }
 
+        function getcurrency(currresult) {
+          let currency_symbol = ''
+          let currencies_id = currresult.map(currency_id => {
+            let currencies_symbol = currresult.map(symbolmap => {
+              if (symbolmap.id == item.currency_id) {
+                currency_symbol = symbolmap.symbol
+              }
+            })
+          })
+          return currency_symbol
+        }
+
         return {
           id: item.id,
           title: item.title,
           price: {
-            currency: item.currency_id,
+            currency: getcurrency(currresult),
             amount: Math.floor(item.price),
             decimals: decimals
           },
@@ -73,14 +85,14 @@ self.getquery = function(req, res) {
     }
 
     function format(result) {
-      const qresult = {};
-      qresult.author = getauthor();
-      qresult.categories = getcategories(result);
-      qresult.items = getitems(result.results);
-      return qresult;
-    }
-
-    res.json(format(result));
+        const qresult = {};
+        qresult.author = getauthor();
+        qresult.categories = getcategories(result);
+        qresult.items = getitems(result.results);
+        return qresult;
+      }
+      res.json(format(result));
+    });
   });
 };
 

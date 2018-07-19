@@ -16,4 +16,17 @@ self.getquery = function(query) {
   return queryPromise;
 };
 
+self.getcurrency = function() {
+  const currPromise = new Promise((resolve, reject) => {
+    rest
+      .get(
+        'https://api.mercadolibre.com/currencies/'
+      )
+      .on('complete', function(result) {
+        resolve(result);
+      });
+  });
+  return currPromise
+}
+
 module.exports = self;

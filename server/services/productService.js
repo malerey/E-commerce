@@ -1,7 +1,5 @@
 let self = {};
-
 const rest = require('restler');
-
 const url = 'https://api.mercadolibre.com'
 
 self.getid = function(id) {
@@ -39,5 +37,18 @@ self.getCategory = function(categoryId) {
 
   return catPromise;
 };
+
+self.getcurrency = function() {
+  const currPromise = new Promise((resolve, reject) => {
+    rest
+      .get(
+        'https://api.mercadolibre.com/currencies/'
+      )
+      .on('complete', function(result) {
+        resolve(result);
+      });
+  });
+  return currPromise
+}
 
 module.exports = self;

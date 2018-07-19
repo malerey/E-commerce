@@ -7,6 +7,8 @@ class Product extends Component {
   }
 
   render() {
+
+    console.log(this.props.details.data.item)
     const received = this.props.details.received;
     return (
       <div className='product-container'>
@@ -33,7 +35,7 @@ class Product extends Component {
 
           <div className='price-container'>
             <p>
-              ${' '}
+              {received ? this.props.details.data.item.price.currency  : ' '}{' '}
               {received
                 ? this.props.details.data.item.price.amount.toLocaleString('es')
                 : ''}

@@ -23,7 +23,8 @@ class Result extends Component {
 
           <div className='price-result'>
             <span>
-              $ {this.props.result.price.amount.toLocaleString('es')}
+              {this.props.result.price.currency}{' '}
+              {this.props.result.price.amount.toLocaleString('es')}
               <sup>{ifdecimal}</sup>
               <img alt='' src={freeship ? imgship : ''} />
             </span>
