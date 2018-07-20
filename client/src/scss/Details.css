@@ -1,10 +1,10 @@
+* {
+  box-sizing: border-box; }
+
 body {
   margin: 0;
   background-color: #eeeeee;
   font-family: "Lato", sans-serif; }
-
-* {
-  box-sizing: border-box; }
 
 .product-container {
   max-width: 1240px;
@@ -27,17 +27,17 @@ body {
   position: absolute;
   right: 32px;
   margin-top: 32px; }
-  .title-container span {
+  .title-container .condition {
     font-size: 14px; }
   .title-container h1 {
-    font-size: 24px;
-    font-style: bold; }
+    font-size: 24px; }
 
 .price-container {
   display: inline-block;
   margin-top: 32px;
+  margin-bottom: 32px;
   font-size: 46px; }
-  .price-container p {
+  .price-container span {
     display: inline-block; }
 
 .decimals {
@@ -47,22 +47,22 @@ body {
 
 .buybtn {
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   padding: 16px;
   border: none;
   color: #FFFFFF;
   background: #3483fa;
   border-radius: 4px;
   cursor: pointer;
-  outline: none;
-  display: inline-block; }
+  outline: none; }
+
+.description-container {
+  margin-left: 32px; }
 
 .description-title {
-  font-size: 28px;
-  margin-left: 32px; }
+  font-size: 28px; }
 
 .description {
   width: 60%;
   font-size: 16px;
-  color: #666666;
-  margin-left: 32px; }
+  color: #666666; }

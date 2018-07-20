@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 body {
   margin: 0;
   background-color: #eeeeee;
@@ -10,7 +13,6 @@ body {
 .breadcrumb {
   font-size: 14px;
   color: #666666;
-  display: flex;
   align-items: center;
   list-style-image: url("../Images/next.svg"); }
   .breadcrumb ul {
@@ -20,8 +22,5 @@ body {
   .breadcrumb li {
     margin: 0 32px 0 0;
     float: left; }
-    .breadcrumb li:first-child {
-      list-style-type: none;
-      list-style-image: url(); }
     .breadcrumb li:last-child {
       font-weight: bold; }

@@ -13,14 +13,13 @@
 .img-query {
   height: $img-results;
   width: $img-results;
-  border-radius: $img-border-radius;
   display: inline-block;
   padding: $margin-small;
 
   img {
     height: 100%;
-    width: 100%;
     border-radius: $img-border-radius;
+    width: 100%;
   }
 }
 

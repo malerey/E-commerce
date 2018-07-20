@@ -16,7 +16,7 @@ self.getQuery = function(req, res) {
 
     //if the item has a predetermined set of categories, returns those as array. 
     //else, maps through the available categories, chooses the one with the most results
-    //and returns them as an array 
+    //and returns it as an array 
     function getCategories(result) {
       const filtersExist = result.filters[0] ? result.filters[0] : [];
       let categories = [];
@@ -46,8 +46,8 @@ self.getQuery = function(req, res) {
 
           // formats decimals 
           let unformatted_decimals = item.price.toString().split('.');
-          let decimals = formatprice(unformatted_decimals);
-          function formatprice() {
+          let decimals = formatDecimals(unformatted_decimals);
+          function formatDecimals() {
             if (!parseInt(unformatted_decimals[1])) {
               return '00';
             } else if (parseInt(unformatted_decimals[1]) < 10) {

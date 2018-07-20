@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 body {
   margin: 0;
   background-color: #eeeeee;
@@ -6,7 +9,6 @@ body {
 header {
   height: 54px;
   background-color: #bc3b69;
-  box-sizing: border-box;
   display: flex;
   justify-content: center; }
 
@@ -27,18 +29,14 @@ header {
 
 .search-container {
   height: 36px;
-  width: 1155px;
-  display: inline-block; }
+  width: 1155px; }
 
 input {
-  color: #666666;
   height: 38px;
   font-size: 18px;
   width: 1115px;
   padding: 0 7px;
   border: none;
-  outline: none;
-  display: inline-block;
   border-radius: 4px 0 0 4px; }
 
 .search-button {
@@ -48,7 +46,6 @@ input {
   position: absolute;
   border: none;
   cursor: pointer;
-  display: inline-block;
   border-radius: 0 2px 2px 0; }
   .search-button img {
     height: 50%;

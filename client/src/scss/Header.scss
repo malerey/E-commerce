@@ -4,7 +4,6 @@
 header {
   height: $header-height;
   background-color: $nav;
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
 }
@@ -30,18 +29,14 @@ header {
 .search-container {
   height: $logo-height;
   width: $search-container-width;
-  display: inline-block;
 }
 
 input {
-  color: $gray-40;
   height: $button-height;
   font-size: $header-font;
   width: $input-width;
   padding: 0 $header-padding;
   border: none;
-  outline: none;
-  display: inline-block;
   border-radius: $img-border-radius 0 0 $img-border-radius;
 }
 
@@ -52,7 +47,6 @@ input {
   position: absolute;
   border: none;
   cursor: pointer;
-  display: inline-block;
   border-radius: 0 2px 2px 0;
   img {
     height: 50%;

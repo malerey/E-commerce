@@ -16,9 +16,9 @@ self.getId = function(req, res) {
           // gets amount as integer and formats decimals 
           const final_price = Math.floor(id_result.price);
           let unformatted_decimals = id_result.price.toString().split('.');
-          let decimals = formatprice(unformatted_decimals);
+          let decimals = formatDecimals(unformatted_decimals);
 
-          function formatprice() {
+          function formatDecimals() {
             if (!parseInt(unformatted_decimals[1])) {
               return '00';
             } else if (parseInt(unformatted_decimals[1]) < 10) {
@@ -39,7 +39,7 @@ self.getId = function(req, res) {
             return currency_symbol
           }
 
-          //fornats condition for simple display in frontend 
+          //formats condition for simple display in frontend 
           function formatCondition() {
             if (id_result.condition == 'new') {
               return "Nuevo"
@@ -53,9 +53,9 @@ self.getId = function(req, res) {
               name: 'Maria Elena',
               lastname: 'Rey'
             },
-            categories: categories,
             // this key is not requested in the exercise, but
             // I considered it necessary to build the breadcrumb
+            categories: categories,
             item: {
               id: id_result.id,
               title: id_result.title,

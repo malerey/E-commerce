@@ -13,7 +13,7 @@ class Product extends Component {
         </div>
 
         <div className='title-container'>
-          <span>{received ? props.condition : ''}</span>{' '}
+          <span className='condition'>{received ? props.condition : ''}</span>{' '}
           <span>
             - {received ? props.sold_quantity : ''}{' '}
             vendidos
@@ -21,16 +21,16 @@ class Product extends Component {
           <h1>{received ? props.title : ''}</h1>
 
           <div className='price-container'>
-            <p>
+            <span>
               {received ? props.price.currency  : ' '}{' '}
               {received
                 ? props.price.amount.toLocaleString('es')
                 : ''}
-            </p>
-            <p className='decimals'>
+            </span>
+            <span className='decimals'>
               {' '}
               {received ? props.price.decimals : ''}
-            </p>
+            </span>
           </div>
 
           <button className='buybtn'>Comprar</button>
