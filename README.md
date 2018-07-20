@@ -4,7 +4,7 @@ El servidor, hecho en Node.js y Express, se comunica con una API pública para o
 
 El front end, hecho en React y Sass, tiene tres vistas: un buscador, un listado de productos, y los detalles de un producto en particular. Cada una de las vistas puede navegarse independientemente.  
 
-Para ver la página es necesario descargar los archivos y ejecutar los siguientes comandos:
+Para ver la página es necesario descargar los archivos y ejecutar los siguientes comandos tanto en la carpeta client como en la carpeta server:
 
 ### `npm install`
 
@@ -18,7 +18,7 @@ The server is coded in Node.js and Express. It reaches a public API to obtain da
 
 The frontend is coded in React and Sass. It has three views: a search widget, a products listing and the details of a particular product. Each view can be accessed independently.  
 
-You must download all archives and run the following commands:
+You must download all archives and run the following commands in both the server dir and the client dir:
 
 ### `npm install`
 
