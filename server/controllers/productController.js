@@ -4,7 +4,6 @@ const productService = require('../services/productService');
 
 self.getId = function(req, res) {
   const id = req.params.id;
-
   productService.getId(id).then(id_result => {
     productService.getDescription(id).then(description_result => {
       productService.getCategory(id_result.category_id).then(categories_result => {
@@ -14,6 +13,7 @@ self.getId = function(req, res) {
             return category.name;
           });
 
+          // gets amount as integer and formats decimals 
           const final_price = Math.floor(id_result.price);
           let unformatted_decimals = id_result.price.toString().split('.');
           let decimals = formatprice(unformatted_decimals);
@@ -28,6 +28,7 @@ self.getId = function(req, res) {
             }
           }
 
+          //returns the matching symbol for the currency of the item
           function getCurrency(currency_result) {
             let currency_symbol = ''
             currency_result.map(symbolmap => {
@@ -38,6 +39,7 @@ self.getId = function(req, res) {
             return currency_symbol
           }
 
+          //fornats condition for simple display in frontend 
           function formatCondition() {
             if (id_result.condition == 'new') {
               return "Nuevo"

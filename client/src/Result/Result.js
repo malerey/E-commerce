@@ -8,9 +8,9 @@ class Result extends Component {
   render() {
     const freeship = this.props.result.free_shipping;
     const url = 'items/' + this.props.result.id
-    let ifdecimal = '';
+    let display_decimals = '';
     if (this.props.result.price.decimals !== '00') {
-      ifdecimal = this.props.result.price.decimals;
+      display_decimals = this.props.result.price.decimals;
     }
 
     return (
@@ -24,7 +24,7 @@ class Result extends Component {
             <span>
               {this.props.result.price.currency}{' '}
               {this.props.result.price.amount.toLocaleString('es')}
-              <sup>{ifdecimal}</sup>
+              <sup>{display_decimals}</sup>
               <img alt='' src={freeship ? imgship : ''} />
             </span>
           </div>
