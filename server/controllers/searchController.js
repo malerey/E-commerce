@@ -90,7 +90,7 @@ self.getQuery = function(req, res) {
         qresult.items = getItems(result.results);
         return qresult;
       }
-      res.json(format(result));
+      return res.json(format(result));
     }).catch(function(err) {
       console.log(err)
     });

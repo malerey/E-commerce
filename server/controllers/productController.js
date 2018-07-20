@@ -69,7 +69,7 @@ self.getId = function(req, res) {
               description: description_result.plain_text
             }
           };
-          res.json(object);
+          return res.json(object);
         }).catch(function(err) {
           console.log(err)
         });
