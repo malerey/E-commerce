@@ -5,30 +5,31 @@ class Product extends Component {
 
   render() {
     const received = this.props.details.received;
+    const props = this.props.details.data.item
     return (
       <div className='product-container'>
         <div className='img-container'>
-          <img alt={received ? this.props.details.data.item.title : ''} src={received ? this.props.details.data.item.picture : ''} />
+          <img alt={received ? props.title : ''} src={received ? props.picture : ''} />
         </div>
 
         <div className='title-container'>
-          <span>{received ? this.props.details.data.item.condition : ''}</span>{' '}
+          <span>{received ? props.condition : ''}</span>{' '}
           <span>
-            - {received ? this.props.details.data.item.sold_quantity : ''}{' '}
+            - {received ? props.sold_quantity : ''}{' '}
             vendidos
           </span>
-          <h1>{received ? this.props.details.data.item.title : ''}</h1>
+          <h1>{received ? props.title : ''}</h1>
 
           <div className='price-container'>
             <p>
-              {received ? this.props.details.data.item.price.currency  : ' '}{' '}
+              {received ? props.price.currency  : ' '}{' '}
               {received
-                ? this.props.details.data.item.price.amount.toLocaleString('es')
+                ? props.price.amount.toLocaleString('es')
                 : ''}
             </p>
             <p className='decimals'>
               {' '}
-              {received ? this.props.details.data.item.price.decimals : ''}
+              {received ? props.price.decimals : ''}
             </p>
           </div>
 
@@ -38,7 +39,7 @@ class Product extends Component {
         <div className='description-container'>
           <p className='description-title'>Descripción del producto</p>
           <p className='description'>
-            {received ? this.props.details.data.item.description : ''}
+            {received ? props.description : ''}
           </p>
         </div>
       </div>
