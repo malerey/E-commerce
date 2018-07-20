@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import imgship from '../Images/ic_shipping.png';
+import { Link } from 'react-router-dom';
 import '../scss/Result.css';
 
 class Result extends Component {
 
   render() {
     const freeship = this.props.result.free_shipping;
+    const url = 'items/' + this.props.result.id
     let ifdecimal = '';
     if (this.props.result.price.decimals !== '00') {
       ifdecimal = this.props.result.price.decimals;
     }
 
     return (
-      <a href={'http://localhost:3000/items/' + this.props.result.id}>
+      <Link to={url}>
         <div className='result-container'>
           <div className='img-query'>
             <img alt={this.props.result.title} src={this.props.result.picture} />
@@ -35,7 +37,7 @@ class Result extends Component {
             <span>{this.props.result.location}</span>
           </div>
         </div>
-      </a>
+        </Link>
     );
   }
 }

@@ -2,42 +2,48 @@ let self = {};
 const productService = require('../services/productService');
 
 
-self.getid = function(req, res) {
+self.getId = function(req, res) {
   const id = req.params.id;
 
-  productService.getid(id).then(idresult => {
-    productService.getdesc(id).then(descresult => {
-      productService.getCategory(idresult.category_id).then(catresult => {
-        productService.getcurrency().then(currresult => {
+  productService.getId(id).then(id_result => {
+    productService.getDescription(id).then(description_result => {
+      productService.getCategory(id_result.category_id).then(categories_result => {
+        productService.getCurrency().then(currency_result => {
         
-          let categories = catresult.path_from_root.map(category => {
+          let categories = categories_result.path_from_root.map(category => {
             return category.name;
           });
 
-          const finalprice = Math.floor(idresult.price);
-          let splitted = idresult.price.toString().split('.');
-          let decimals = formatprice(splitted);
+          const final_price = Math.floor(id_result.price);
+          let unformatted_decimals = id_result.price.toString().split('.');
+          let decimals = formatprice(unformatted_decimals);
 
           function formatprice() {
-            if (!parseInt(splitted[1])) {
+            if (!parseInt(unformatted_decimals[1])) {
               return '00';
-            } else if (parseInt(splitted[1]) < 10) {
-              return parseInt(splitted[1]) * 10;
+            } else if (parseInt(unformatted_decimals[1]) < 10) {
+              return parseInt(unformatted_decimals[1]) * 10;
             } else {
-              return parseInt(splitted[1]);
+              return parseInt(unformatted_decimals[1]);
             }
           }
 
-          function getcurrency(currresult) {
+          function getCurrency(currency_result) {
             let currency_symbol = ''
-            let currencies_id = currresult.map(currency_id => {
-              let currencies_symbol = currresult.map(symbolmap => {
-                if (symbolmap.id == idresult.currency_id) {
+            currency_result.map(symbolmap => {
+                if (symbolmap.id == id_result.currency_id) {
                   currency_symbol = symbolmap.symbol
                 }
               })
-            })
             return currency_symbol
+          }
+
+          function formatCondition() {
+            if (id_result.condition == 'new') {
+              return "Nuevo"
+            } else if (id_result.condition == 'used') {
+              return "Usado"
+            } else return ''
           }
 
           const object = {
@@ -49,24 +55,32 @@ self.getid = function(req, res) {
             // this key is not requested in the exercise, but
             // I considered it necessary to build the breadcrumb
             item: {
-              id: idresult.id,
-              title: idresult.title,
+              id: id_result.id,
+              title: id_result.title,
               price: {
-                currency: getcurrency(currresult),
-                amount: finalprice,
+                currency: getCurrency(currency_result),
+                amount: final_price,
                 decimals: decimals
               },
-              picture: idresult.pictures[0].secure_url,
-              condition: idresult.condition,
-              free_shipping: idresult.shipping.free_shipping,
-              sold_quantity: idresult.sold_quantity,
-              description: descresult.plain_text
+              picture: id_result.pictures[0].secure_url,
+              condition: formatCondition(),
+              free_shipping: id_result.shipping.free_shipping,
+              sold_quantity: id_result.sold_quantity,
+              description: description_result.plain_text
             }
           };
           res.json(object);
+        }).catch(function(err) {
+          console.log(err)
         });
+      }).catch(function(err) {
+        console.log(err)
       });
+    }).catch(function(err) {
+      console.log(err)
     });
+  }).catch(function(err) {
+    console.log(err)
   });
 };
 

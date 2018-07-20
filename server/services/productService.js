@@ -2,27 +2,29 @@ let self = {};
 const rest = require('restler');
 const url = 'https://api.mercadolibre.com'
 
-self.getid = function(id) {
+self.getId = function(id) {
   const idPromise = new Promise((resolve, reject) => {
     rest
       .get(url + '/items/' + id)
       .on('complete', function(result) {
-        resolve(result);
+        resolve(result)
+      }).on('fail', function(err) {
+        reject(err)
+      })
       });
-  });
-
   return idPromise;
 };
 
-self.getdesc = function(id) {
+self.getDescription = function(id) {
   const descPromise = new Promise((resolve, reject) => {
     rest
       .get(url + '/items/' + id + '/description')
       .on('complete', function(result) {
-        resolve(result);
+        resolve(result)
+      }).on('fail', function(err) {
+        reject(err)
+      })
       });
-  });
-
   return descPromise;
 };
 
@@ -31,24 +33,27 @@ self.getCategory = function(categoryId) {
     rest
       .get(url + '/categories/' + categoryId)
       .on('complete', function(result) {
-        resolve(result);
+        resolve(result)
+      }).on('fail', function(err) {
+        reject(err)
+      })
       });
-  });
-
   return catPromise;
 };
 
-self.getcurrency = function() {
+self.getCurrency = function() {
   const currPromise = new Promise((resolve, reject) => {
     rest
       .get(
         'https://api.mercadolibre.com/currencies/'
       )
       .on('complete', function(result) {
-        resolve(result);
+        resolve(result)
+      }).on('fail', function(err) {
+        reject(err)
+      })
       });
-  });
   return currPromise
-}
+};
 
 module.exports = self;

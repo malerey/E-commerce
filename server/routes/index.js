@@ -12,7 +12,7 @@ router.all('/*', function(req, res, next) {
 
 /* GET home page. */
 
-router.get('/api/items', searchController.getquery);
-router.get('/api/items/:id', productController.getid);
+router.get('/api/items', searchController.getQuery);
+router.get('/api/items/:id', productController.getId);
 
 module.exports = router;

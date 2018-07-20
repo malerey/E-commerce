@@ -2,19 +2,19 @@ let self = {};
 const searchService = require('../services/searchService');
 
 
-self.getquery = function(req, res) {
+self.getQuery = function(req, res) {
   const query = req.query.q;
-  searchService.getquery(query).then(result => {
-    searchService.getcurrency().then(currresult => { 
+  searchService.getQuery(query).then(result => {
+    searchService.getCurrency().then(currency_result => { 
 
-    function getauthor() {
+    function getAuthor() {
       return {
         name: 'Maria Elena',
         lastname: 'Rey'
       };
     }
 
-    function getcategories(result) {
+    function getCategories(result) {
       const filtersExist = result.filters[0] ? result.filters[0] : [];
       let categories = [];
       if (filtersExist == result.filters[0]) {
@@ -33,45 +33,43 @@ self.getquery = function(req, res) {
             maxresult = filterarray[i];
           }
         }
-        categories = maxresult.name;
-        categories = categories.split();
+        categories = maxresult.name.split();
       }
       return categories;
     }
 
-    function getitems(items) {
+    function getItems(items) {
       
       return items.map(item => {
-        let splitted = item.price.toString().split('.');
-        let decimals = formatprice(splitted);
 
-        function formatprice() {
-          if (!parseInt(splitted[1])) {
-            return '00';
-          } else if (parseInt(splitted[1]) < 10) {
-            return parseInt(splitted[1]) * 10;
-          } else {
-            return parseInt(splitted[1]);
+          let unformatted_decimals = item.price.toString().split('.');
+          let decimals = formatprice(unformatted_decimals);
+
+          function formatprice() {
+            if (!parseInt(unformatted_decimals[1])) {
+              return '00';
+            } else if (parseInt(unformatted_decimals[1]) < 10) {
+              return parseInt(unformatted_decimals[1]) * 10;
+            } else {
+              return parseInt(unformatted_decimals[1]);
+            }
           }
-        }
 
-        function getcurrency(currresult) {
-          let currency_symbol = ''
-          let currencies_id = currresult.map(currency_id => {
-            let currencies_symbol = currresult.map(symbolmap => {
-              if (symbolmap.id == item.currency_id) {
-                currency_symbol = symbolmap.symbol
-              }
-            })
-          })
-          return currency_symbol
+          function getCurrency(currency_result) {
+            let currency_symbol = ''
+            currency_result.map(symbolmap => {
+                if (symbolmap.id == item.currency_id) {
+                  currency_symbol = symbolmap.symbol
+                }
+              })
+            return currency_symbol
         }
 
         return {
           id: item.id,
           title: item.title,
           price: {
-            currency: getcurrency(currresult),
+            currency: getCurrency(currency_result),
             amount: Math.floor(item.price),
             decimals: decimals
           },
@@ -87,13 +85,17 @@ self.getquery = function(req, res) {
 
     function format(result) {
         const qresult = {};
-        qresult.author = getauthor();
-        qresult.categories = getcategories(result);
-        qresult.items = getitems(result.results);
+        qresult.author = getAuthor();
+        qresult.categories = getCategories(result);
+        qresult.items = getItems(result.results);
         return qresult;
       }
       res.json(format(result));
+    }).catch(function(err) {
+      console.log(err)
     });
+  }).catch(function(err) {
+    console.log(err)
   });
 };
 

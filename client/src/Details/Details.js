@@ -12,16 +12,7 @@ class Product extends Component {
         </div>
 
         <div className='title-container'>
-          <span>
-            {received && (
-              <React.Fragment>
-                {this.props.details.data.item.condition === 'new' && 'Nuevo '}
-                {this.props.details.data.item.condition === 'used' && 'Usado'}
-                {this.props.details.data.item.condition === 'not_specified' &&
-                  ''}
-              </React.Fragment>
-            )}
-          </span>
+          <span>{received ? this.props.details.data.item.condition : ''}</span>{' '}
           <span>
             - {received ? this.props.details.data.item.sold_quantity : ''}{' '}
             vendidos
