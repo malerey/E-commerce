@@ -1,4 +1,4 @@
-## Trabajo final de Ada - Web de e-commerce
+## E-commerce search and product view 
 
 El servidor, hecho en Restler, Node.js y Express, se comunica con una API pública para obtener datos de productos a la venta y les da formato para mostrarse en el front end.
 
